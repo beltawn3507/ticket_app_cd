@@ -15,7 +15,7 @@ spec:
     spec: 
       containers:
         - name: auth
-          image: beltawn3507/auth
+          image: ghcr.io/beltawn3507/auth
           env:
             - name: MONGO_URI
               value: "mongodb://auth-mongo-srv:27017/auth"
