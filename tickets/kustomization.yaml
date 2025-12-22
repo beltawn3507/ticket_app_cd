@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - tickets-depl.yaml
+  - tickets-mongo-depl.yaml
+
+images:
+  - name: ghcr.io/beltawn3507/auth
+    newTag: b6608ea695cf22bf93b9da87579bd5ae05783dd6
+
