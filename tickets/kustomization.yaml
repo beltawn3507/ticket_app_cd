@@ -6,6 +6,6 @@ resources:
   - tickets-mongo-depl.yaml
 
 images:
-  - name: ghcr.io/beltawn3507/auth
-    newTag: b6608ea695cf22bf93b9da87579bd5ae05783dd6
+  - name: ghcr.io/beltawn3507/tickets
+    newTag: 10760c4514d75c2fff7e7056248cb02d7afd7b24
 

@@ -14,7 +14,7 @@ spec:
     spec: 
       containers:
         - name: tickets
-          image: beltawn3507/tickets
+          image: ghcr.io/beltawn3507/tickets
           env: 
             - name: NATS_CLIENT_ID
               valueFrom:
