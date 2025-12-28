@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - expiration-depl.yaml
+  - expiration-redis-depl.yaml
+
+images:
+  - name: ghcr.io/beltawn3507/expiration
+    newTag: 10760c4514d75c2fff7e7056248cb02d7afd7b24
+
