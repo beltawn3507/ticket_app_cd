@@ -7,5 +7,5 @@ resources:
 
 images:
   - name: ghcr.io/beltawn3507/expiration
-    newTag: 10760c4514d75c2fff7e7056248cb02d7afd7b24
+    newTag: 9cff4b628835f3dedb69d410896eace08ec62cce
 
