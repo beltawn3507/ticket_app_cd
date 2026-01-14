@@ -6,5 +6,5 @@ resources:
 
 images:
   - name: ghcr.io/beltawn3507/client
-    newTag: 10760c4514d75c2fff7e7056248cb02d7afd7b24
+    newTag: 973b967773f8fb2547f73398fba27b1a3ec9918f
 
