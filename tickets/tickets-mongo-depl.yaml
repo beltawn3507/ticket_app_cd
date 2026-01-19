@@ -10,11 +10,24 @@ spec:
   template:
     metadata:
       labels:
-        app: tickets-mongo 
+        app: tickets-mongo
     spec:
       containers:
         - name: tickets-mongo
           image: mongo
+
+          args:
+            - "--wiredTigerCacheSizeGB"
+            - "0.25"
+
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+
 ---
 apiVersion: v1
 kind: Service

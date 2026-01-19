@@ -15,28 +15,36 @@ spec:
       containers:
         - name: nats
           image: nats-streaming:0.17.0
-          args: [
-            '-p',
-            '4222',
-            '-m',
-            '8222',
-            '-hbi',
-            '5s',
-            '-hbt',
-            '5s',
-            '-hbf',
-            '2',
-            '-SD',
-            '-cid',
-            'ticketing'
-          ]
+          args:
+            - "-p"
+            - "4222"
+            - "-m"
+            - "8222"
+            - "-hbi"
+            - "5s"
+            - "-hbt"
+            - "5s"
+            - "-hbf"
+            - "2"
+            - "-SD"
+            - "-cid"
+            - "ticketing"
+
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "300m"
+              memory: "256Mi"
+
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: nats-srv
 spec:
-  selector: 
+  selector:
     app: nats
   ports:
     - name: client

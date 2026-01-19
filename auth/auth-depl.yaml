@@ -1,18 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: auth-depl 
-  # namespace 
+  name: auth-depl
 spec:
   replicas: 1
-  selector: 
+  selector:
     matchLabels:
       app: auth
   template:
-    metadata: 
-      labels:  
+    metadata:
+      labels:
         app: auth
-    spec: 
+    spec:
       containers:
         - name: auth
           image: ghcr.io/beltawn3507/auth
@@ -25,10 +24,18 @@ spec:
                   name: jwt-secret
                   key: JWT_KEY
 
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "300m"
+              memory: "256Mi"
+
 ---
 apiVersion: v1
 kind: Service
-metadata: 
+metadata:
   name: auth-srv
 spec:
   selector:
@@ -38,4 +45,3 @@ spec:
       protocol: TCP
       port: 3000
       targetPort: 3000
-

@@ -4,38 +4,46 @@ metadata:
   name: orders-depl
 spec:
   replicas: 1
-  selector: 
+  selector:
     matchLabels:
       app: orders
   template:
-    metadata: 
-      labels:  
+    metadata:
+      labels:
         app: orders
-    spec: 
+    spec:
       containers:
         - name: orders
           image: beltawn3507/orders
-          env: 
+          env:
             - name: NATS_CLIENT_ID
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.name
             - name: NATS_URL
-              value: 'http://nats-srv:4222'
+              value: "http://nats-srv:4222"
             - name: NATS_CLUSTER_ID
               value: ticketing
             - name: MONGO_URI
-              value: 'mongodb://orders-mongo-srv:27017/orders'
+              value: "mongodb://orders-mongo-srv:27017/orders"
             - name: JWT_KEY
               valueFrom:
                 secretKeyRef:
                   name: jwt-secret
                   key: JWT_KEY
 
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "300m"
+              memory: "256Mi"
+
 ---
 apiVersion: v1
 kind: Service
-metadata:  
+metadata:
   name: orders-srv
 spec:
   selector:
@@ -45,4 +53,3 @@ spec:
       protocol: TCP
       port: 3000
       targetPort: 3000
-

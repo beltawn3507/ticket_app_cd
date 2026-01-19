@@ -10,11 +10,24 @@ spec:
   template:
     metadata:
       labels:
-        app: orders-mongo 
+        app: orders-mongo
     spec:
       containers:
         - name: orders-mongo
           image: mongo
+
+          args:
+            - "--wiredTigerCacheSizeGB"
+            - "0.25"
+
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+
 ---
 apiVersion: v1
 kind: Service
@@ -26,5 +39,4 @@ spec:
   ports:
     - name: db
       protocol: TCP
-      port: 27017
-      targetPort: 27017
+      por

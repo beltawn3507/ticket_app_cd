@@ -21,8 +21,16 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
             - name: NATS_URL
-              value: 'http://nats-srv:4222'
+              value: "http://nats-srv:4222"
             - name: NATS_CLUSTER_ID
               value: ticketing
             - name: REDIS_HOST
               value: expiration-redis-srv
+
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "300m"
+              memory: "256Mi"
