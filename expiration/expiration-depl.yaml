@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: expiration
-          image: beltawn3507/expiration
+          image: ghcr.io/beltawn3507/expiration
           env:
             - name: NATS_CLIENT_ID
               valueFrom:
