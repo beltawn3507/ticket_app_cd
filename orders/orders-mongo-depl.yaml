@@ -14,12 +14,10 @@ spec:
     spec:
       containers:
         - name: orders-mongo
-          image: mongo
-
+          image: mongo:6
           args:
             - "--wiredTigerCacheSizeGB"
             - "0.25"
-
           resources:
             requests:
               cpu: "100m"
@@ -37,6 +35,7 @@ spec:
   selector:
     app: orders-mongo
   ports:
-    - name: db
+    - name: mongo
       protocol: TCP
-      por
+      port: 27017
+      targetPort: 27017
