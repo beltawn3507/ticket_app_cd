@@ -7,5 +7,5 @@ resources:
 
 images:
   - name: ghcr.io/beltawn3507/auth
-    newTag: 18807aa1ba2f505dfcd8e8834741227d33a4d803
+    newTag: 27687aa50e96833c5af77e7e1543bd36f8f3056d
 
