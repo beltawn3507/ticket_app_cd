@@ -7,5 +7,5 @@ resources:
 
 images:
   - name: ghcr.io/beltawn3507/tickets
-    newTag: 78db728348150ea4cf800207550520157b75bb18
+    newTag: 18807aa1ba2f505dfcd8e8834741227d33a4d803
 

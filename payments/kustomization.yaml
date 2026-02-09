@@ -7,5 +7,5 @@ resources:
 
 images:
   - name: ghcr.io/beltawn3507/payments
-    newTag: 0ba5ff98985a09f5f290f5b48b6d7198b34db290
+    newTag: 18807aa1ba2f505dfcd8e8834741227d33a4d803
 
