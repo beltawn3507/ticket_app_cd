@@ -1,8 +1,9 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: tickets-mongo-depl
+  name: tickets-mongo
 spec:
+  serviceName: tickets-mongo-srv
   replicas: 1
   selector:
     matchLabels:
@@ -15,11 +16,9 @@ spec:
       containers:
         - name: tickets-mongo
           image: mongo
-
           args:
             - "--wiredTigerCacheSizeGB"
             - "0.25"
-
           resources:
             requests:
               cpu: "100m"
@@ -27,6 +26,19 @@ spec:
             limits:
               cpu: "500m"
               memory: "512Mi"
+          volumeMounts:
+            - name: mongo-storage
+              mountPath: /data/db
+  volumeClaimTemplates:
+    - metadata:
+        name: mongo-storage
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        storageClassName: local-path
+        resources:
+          requests:
+            storage: 1Gi
 
 ---
 apiVersion: v1
