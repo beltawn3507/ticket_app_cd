@@ -7,5 +7,5 @@ resources:
 
 images:
   - name: ghcr.io/beltawn3507/orders
-    newTag: 18807aa1ba2f505dfcd8e8834741227d33a4d803
+    newTag: 52a9959a732f0c9e0cef6b63ded2545764de04c7
 
